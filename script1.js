@@ -6,6 +6,12 @@ document.getElementById('calculator-form').addEventListener('submit', function(e
     const surplusShortfall = parseFloat(document.getElementById('surplusShortfall').value) || 0;
     const surplusShortfallType = document.querySelector('input[name="surplusShortfallRadio"]:checked')?.value;
     
+     // Check for surplus limit
+     if (surplusShortfallType === 'surplus' && surplusShortfall > 1.5) {
+        alert('You can only use 1.5 hrs surplus in a day! Since min work duration limit is 7 hours');
+        return;
+    }
+
     let result = '';
     
     if (outTime) {
