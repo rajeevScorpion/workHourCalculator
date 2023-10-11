@@ -40,6 +40,26 @@
         <button type="submit" class="btn btn-primary">Calculate</button>
         <button type="button" class="btn btn-secondary" id="clear-button">Clear</button>
       </form>
+
+      <!--modal for surplus -->
+      <div class="modal fade" id="surplusModal" tabindex="-1" aria-labelledby="surplusModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="surplusModalLabel">Surplus Limit Exceeded</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              You can only use 1.5 hrs surplus in a day! Since min work duration limit is 7 hours.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- modal for surplus ends here-->      
+
       <div id="result" class="mt-4"></div>
       <div id="quickActions">
         <h3>Quick Actions</h3>

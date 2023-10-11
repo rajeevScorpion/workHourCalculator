@@ -8,7 +8,8 @@ document.getElementById('calculator-form').addEventListener('submit', function(e
     
      // Check for surplus limit
      if (surplusShortfallType === 'surplus' && surplusShortfall > 1.5) {
-        alert('You can only use 1.5 hrs surplus in a day! Since min work duration limit is 7 hours');
+        var myModal = new bootstrap.Modal(document.getElementById('surplusModal'));
+        myModal.show();
         return;
     }
 
