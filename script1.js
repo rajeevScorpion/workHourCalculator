@@ -8,8 +8,8 @@ document.getElementById('calculator-form').addEventListener('submit', function(e
     
      // Check for surplus limit
      if (surplusShortfallType === 'surplus' && surplusShortfall > 1.5) {
-        var myModal = new bootstrap.Modal(document.getElementById('surplusModal'));
-        myModal.show();
+        var surplusModal = new bootstrap.Modal(document.getElementById('surplusModal'));
+        surplusModal.show();
         return;
     }
 
