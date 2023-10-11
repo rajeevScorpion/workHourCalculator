@@ -64,12 +64,49 @@
 
       <div id="result" class="mt-4"></div>
       <div id="quickActions">
-        <h3>Quick Actions</h3>
-        <ol>
-            <li>Fill "in time" and press calculate to know what time can you leave!</li>
-            <li>Fill "in time" and "out time" and press calculate to know total work hours and how much surplus or shortfall you have.</li>
-            <li>Fill "in time" and "surplus/shortfall" then select "surplus or shortfall" from radio button and press calculate to know how early or late can you leave.</li>
-        </ol>
+        <h3>How to Use?</h3>
+        <div id="accordion">
+
+            <div class="card">
+              <div class="card-header">
+                <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
+                  When can you leave for the day?
+                </a>
+              </div>
+              <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
+                <div class="card-body">
+                    Fill "in time" and press calculate to know what time can you leave!
+                </div>
+              </div>
+            </div>
+          
+            <div class="card">
+              <div class="card-header">
+                <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo">
+                  Calculate surplus or shortfall for the day?
+                </a>
+              </div>
+              <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
+                <div class="card-body">
+                    Fill "in time" and "out time" and press calculate to know total work hours and how much surplus or shortfall you have.
+                </div>
+              </div>
+            </div>
+          
+            <div class="card">
+              <div class="card-header">
+                <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseThree">
+                  Use your surplus or cover for shortfall.
+                </a>
+              </div>
+              <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
+                <div class="card-body">
+                    Fill "in time" and "surplus/shortfall" then select "surplus or shortfall" from radio button and press calculate to know how early or late can you leave.
+                </div>
+              </div>
+            </div>
+          
+          </div>
         </div>
     </div>
   </div>
