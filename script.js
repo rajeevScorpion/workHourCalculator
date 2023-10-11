@@ -6,6 +6,13 @@ document.getElementById('calculator-form').addEventListener('submit', function(e
     const surplusShortfall = parseFloat(document.getElementById('surplusShortfall').value) || 0;
     const surplusShortfallType = document.querySelector('input[name="surplusShortfallRadio"]:checked')?.value;
     
+     // Check for surplus limit
+     if (surplusShortfallType === 'surplus' && surplusShortfall > 1.5) {
+        var surplusModal = new bootstrap.Modal(document.getElementById('surplusModal'));
+        surplusModal.show();
+        return;
+    }
+
     let result = '';
     
     if (outTime) {
@@ -29,7 +36,10 @@ document.getElementById('calculator-form').addEventListener('submit', function(e
             const shortfall = convertToHHMMSS((8.5 * 3600) - totalSeconds);
             result += `Shortfall: <span class="failure">${shortfall}</span>`;
         }
-    } else if (surplusShortfallType && surplusShortfall) {
+    } else if (inTime && (!surplusShortfallType || surplusShortfall === 0)) {
+        const outTime = calculateOutTimeForStandardShift(inTime);
+        result += `You are good to go at: <span>${outTime}</span>`;
+    } else if (surplusShortfallType && surplusShortfall !== null) {
         const outTime = calculateOutTime(inTime, surplusShortfall, surplusShortfallType);
         result += `You can leave at: <span>${outTime}</span>`;
     }
@@ -41,13 +51,19 @@ function calculateTotalSeconds(inTime, outTime) {
     return convertToSeconds(outTime) - convertToSeconds(inTime);
 }
 
+function calculateOutTimeForStandardShift(inTime) {
+    const inTimeInSeconds = convertToSeconds(inTime);
+    const outTimeInSeconds = inTimeInSeconds + (8.5 * 3600);
+    return convertToHHMMSS(outTimeInSeconds);
+}
+
 function calculateOutTime(inTime, surplusShortfall, surplusShortfallType) {
     const inTimeInSeconds = convertToSeconds(inTime);
     let outTimeInSeconds;
     if (surplusShortfallType === 'surplus') {
-        outTimeInSeconds = inTimeInSeconds + ((8.5 - surplusShortfall) * 3600);
+        outTimeInSeconds = inTimeInSeconds + ((8.5 * 3600) - (surplusShortfall * 3600));
     } else {
-        outTimeInSeconds = inTimeInSeconds + ((8.5 + surplusShortfall) * 3600);
+        outTimeInSeconds = inTimeInSeconds + ((8.5 * 3600) + (surplusShortfall * 3600));
     }
     return convertToHHMMSS(outTimeInSeconds);
 }
