@@ -1,0 +1,19 @@
+body {
+    background-color: #f0f0f0;
+}
+
+#result {
+    font-size: 1.2rem;
+}
+
+#result span {
+    font-weight: bold;
+}
+
+.success {
+    color: green;
+}
+
+.failure {
+    color: red;
+}
