@@ -44,6 +44,7 @@ document.getElementById('calculator-form').addEventListener('submit', function(e
         result += `You can leave at: <span>${outTime}</span>`;
     }
     
+    document.getElementById('quickActions').style.display = "none";
     document.getElementById('result').innerHTML = result;
 });
 
@@ -84,4 +85,5 @@ function convertToHHMMSS(seconds) {
 document.getElementById('clear-button').addEventListener('click', function() {
     document.getElementById('calculator-form').reset();
     document.getElementById('result').innerHTML = '';
+    document.getElementById('quickActions').style.display = "";
 });
