@@ -4,6 +4,10 @@ body {
 
 #result {
    font-size: 1.2rem;
+   border-top: 1px dotted darkgray;
+   border-bottom: 1px dotted darkgray;
+   padding-top: 10px;
+   padding-bottom: 10px;
 }
 
 #result span {
