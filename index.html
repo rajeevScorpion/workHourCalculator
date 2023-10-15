@@ -42,16 +42,16 @@
         <button type="button" class="btn btn-secondary" id="clear-button">Reset</button>
       </form>
 
-      <!--modal for surplus -->
-      <div class="modal fade" id="surplusModal" tabindex="-1" aria-labelledby="surplusModalLabel" aria-hidden="true">
+      <!--modal for inTimeLimit -->
+      <div class="modal fade" id="inTimeLimit" tabindex="-1" aria-labelledby="inTimeLimitLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="surplusModalLabel">Surplus Limit Exceeded</h5>
+              <h5 class="modal-title" id="inTimeLimitLabel">Not with in "Punch In" Time Limit </h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              You can only use 1.5 hrs surplus in a day! Since minimum work duration limit for a day is 7 hours.
+              In Time must be between 6 AM to 10:30 AM.
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -60,8 +60,29 @@
         </div>
       </div>
       
-    <!-- modal for surplus ends here-->      
+    <!-- modal for inTimeLimit ends here-->      
 
+    <!--modal for surplus -->
+    <div class="modal fade" id="surplusModal" tabindex="-1" aria-labelledby="surplusModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="surplusModalLabel">Surplus Limit Exceeded</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            You can only use 1.5 hrs surplus in a day! Since minimum work duration limit for a day is 7 hours.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  <!-- modal for surplus ends here-->     
+
+    
       <div id="result" class="mt-4"></div>
       <div id="quickActions">
         <h3>How to Use?</h3>
@@ -112,6 +133,6 @@
   </div>
 </div>
 
-<script src="script.js"></script>
+<script src="final_script_01.js"></script>
 </body>
 </html>

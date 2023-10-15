@@ -18,6 +18,10 @@ body {
     color: red;
 }
 
+.error{
+    color: red;
+}
+
 #quickActions{
     display: block;
     margin-top: 30px;

@@ -5,6 +5,38 @@ document.getElementById('calculator-form').addEventListener('submit', function(e
     const outTime = document.getElementById('outTime').value;
     const surplusShortfall = parseFloat(document.getElementById('surplusShortfall').value) || 0;
     const surplusShortfallType = document.querySelector('input[name="surplusShortfallRadio"]:checked')?.value;
+
+
+    // Get references to the input fields and the surplus/shortfall controls
+    const inTimeField = document.getElementById('inTime');
+    const outTimeField = document.getElementById('outTime');
+    const surplusShortfallField = document.getElementById('surplusShortfall');
+    const surplusRadioButton = document.getElementById('surplusRadio');
+    const shortfallRadioButton = document.getElementById('shortfallRadio');
+    
+    // Set up an event listener for the input fields
+    inTimeField.addEventListener('keyup', checkFields);
+    outTimeField.addEventListener('keyup', checkFields);
+    surplusShortfallField.addEventListener('keyup', checkFields);  // Add event listener for surplus/shortfall field
+
+    function checkFields() {
+        // Check if both the In Time and Out Time fields are filled
+        if (inTimeField.value && outTimeField.value) {
+            // If both fields are filled, disable the surplus/shortfall controls
+            surplusShortfallField.disabled = true;
+            surplusRadioButton.disabled = true;
+            shortfallRadioButton.disabled = true;
+        } else if (inTimeField.value && surplusShortfallField.value) {
+            // If In Time and Surplus/Shortfall fields are filled, disable the Out Time field
+            outTimeField.disabled = true;
+        } else {
+            // If either condition above is not met, enable all fields
+            surplusShortfallField.disabled = false;
+            surplusRadioButton.disabled = false;
+            shortfallRadioButton.disabled = false;
+            outTimeField.disabled = false;
+        }
+    }
     
      // Check for surplus limit
      if (surplusShortfallType === 'surplus' && surplusShortfall > 1.5) {
@@ -86,4 +118,8 @@ document.getElementById('clear-button').addEventListener('click', function() {
     document.getElementById('calculator-form').reset();
     document.getElementById('result').innerHTML = '';
     document.getElementById('quickActions').style.display = "";
+    surplusShortfallField.disabled = false;
+    surplusRadioButton.disabled = false;
+    shortfallRadioButton.disabled = false;
+    outTimeField.disabled = false;
 });
