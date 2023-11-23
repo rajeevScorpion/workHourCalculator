@@ -25,7 +25,9 @@
         </div>
         <div class="mb-3">
           <label for="surplusShortfall" class="form-label">Surplus/Shortfall</label>
-          <input type="time" class="form-control" id="surplusShortfall">
+          <!-- Change type from 'time' to 'number' -->
+          <input type="number" class="form-control" placeholder="In Minutes" id="surplusShortfall" min="0" step="1">
+
         </div>
         <div class="mb-3">
           <label class="form-label">Surplus or Shortfall</label>
@@ -133,6 +135,6 @@
   </div>
 </div>
 
-<script src="final_script_02.js"></script>
+<script src="final_script.js"></script>
 </body>
 </html>
